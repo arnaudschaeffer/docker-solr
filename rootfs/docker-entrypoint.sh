@@ -1,13 +1,8 @@
 #!/bin/bash
 
-# Adapt UID & GID if needed
-if [[ -n "$UID" ]] && [[ "$(id -u solr)" != "$UID" ]]; then
-    usermod -u ${UID} solr
-fi
+set -x
 
-if [[ -n "$GID" ]] && [[ "$(id -g solr)" != "$GID" ]]; then
-    groupmod -g ${GID} solr
-fi
+. /update_user.sh
 
 ADDITIONAL_OPTS=""
 # Be sure permissions are OK

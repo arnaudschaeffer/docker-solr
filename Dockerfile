@@ -2,6 +2,8 @@ From solr:8.0
 
 # Override entry point
 USER root
-COPY solr.sh /solr.sh
 
-CMD ["/solr.sh", "-f"]
+COPY rootfs /
+RUN chmod +x /*.sh
+
+CMD ["/docker-entrypoint.sh", "-f"]
